@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block "title" %}Info{% endblock  %}
+
+{% block "content" %}
+<h2>User Information</h2>
+<p><strong>Full Name:</strong> {% full_name %}</p>
+<p><strong>Date of Birth:</strong> {% date_of_birth %}</p>
+<p><strong>Email:</strong> {% email %}</p>
+<p><strong>Avatar:</strong></p>
+<img src="{% avatar.url %}" alt="Avatar" class="img-thumbnail" style="max-width: 200px;">
+{% endblock  %}
