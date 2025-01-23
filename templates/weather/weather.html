@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}Weather{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Weather</h2>
+    <form method="post" class="mb-4">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.city.label_tag }}
+            {{ form.city }}
+        </div>
+        <button type="submit" class="btn btn-primary">Get Weather</button>
+    </form>
+    {% if weather %}
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">{{ weather.city }}</h3>
+            <p class="card-text"><strong>Temperature:</strong> {{ weather.temperature }}°C</p>
+            <p class="card-text"><strong>Wind:</strong> {{ weather.wind }} m/s</p>
+            <p class="card-text"><strong>Cloudiness:</strong> {{ weather.cloudiness }}</p>
+            <p class="card-text"><strong>Pressure:</strong> {{ weather.pressure }} hPa</p>
+            <p class="card-text"><strong>Humidity:</strong> {{ weather.humidity }}%</p>
+            <p class="card-text"><strong>Sunrise:</strong> {{ weather.sunrise }}</p>
+            <p class="card-text"><strong>Sunset:</strong> {{ weather.sunset }}</p>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
